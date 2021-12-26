@@ -18,15 +18,6 @@ private val LightColorPalette = lightColors(
     secondary = BgColor,
     background = BgColor,
     surface = BgColor
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
 )
 
 @Composable
@@ -44,6 +35,6 @@ fun HqRadioAndroidTheme(
         colors = colors,
         typography = Typography,
         shapes = Shapes,
-        content = content
+        content = content,
     )
 }
