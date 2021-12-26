@@ -1,5 +1,9 @@
 package com.example.hqradioandroid.data.models
 
+import kotlinx.serialization.Serializable
+
+
+@Serializable
 data class Station(
     val id: String,
     val title: String,
@@ -10,3 +14,6 @@ data class Station(
     val network: String,
     val networkName: String,
 )
+
+@Serializable
+data class Stations(val list: ArrayList<Station>)
