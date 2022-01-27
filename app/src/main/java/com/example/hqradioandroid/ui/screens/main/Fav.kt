@@ -1,4 +1,4 @@
-package com.example.hqradioandroid.screens.main
+package com.example.hqradioandroid.ui.screens.main
 
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable

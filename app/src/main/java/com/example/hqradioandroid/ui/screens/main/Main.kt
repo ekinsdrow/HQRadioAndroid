@@ -1,4 +1,4 @@
-package com.example.hqradioandroid.screens.main
+package com.example.hqradioandroid.ui.screens.main
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
@@ -39,7 +39,6 @@ fun MainScreen() {
                             }, ""
                         )
                     },
-                    label = { Text(text = stringResource(id = R.string.favorites)) },
                     selected = index == i,
                     onClick = {
                         index = i
