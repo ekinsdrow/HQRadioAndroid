@@ -17,6 +17,9 @@ data class Config(
 
     @SerialName("stations")
     val stations: Stations,
+
+    val new: StationIdList,
+    val hot: StationIdList,
 )
 
 val ConfigLocal = compositionLocalOf<Config> { error("No config") }

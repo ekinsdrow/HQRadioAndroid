@@ -2,6 +2,7 @@ package com.example.hqradioandroid.ui.screens.main
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
@@ -17,14 +18,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import com.example.hqradioandroid.ui.theme.HqRadioAndroidTheme
 
 @Composable
 @Preview
 fun MainScreen() {
     val mainScreenNavController = rememberNavController()
-
     Scaffold(bottomBar = {
-        BottomAppBar {
+        BottomAppBar(
+            backgroundColor = MaterialTheme.colors.background,
+        ) {
             var index by remember { mutableStateOf(0) }
 
             for (i in 0..2) {
