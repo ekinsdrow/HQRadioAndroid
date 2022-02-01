@@ -6,18 +6,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Config(
-    @SerialName("genres")
     val genres: Genres,
-
-    @SerialName("styles")
     val styles: Styles,
-
-    @SerialName("networks")
     val networks: Networks,
-
-    @SerialName("stations")
     val stations: Stations,
-
     val new: StationIdList,
     val hot: StationIdList,
 )
