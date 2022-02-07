@@ -24,7 +24,9 @@ fun StationCard(station: Station, click: () -> Unit) {
     ) {
         Row() {
             Image(
-                painter = rememberImagePainter(station.getImage()),
+                //TODO: inject mainUrl from AppContainer
+
+                painter = rememberImagePainter(station.getImage("http://hqradio.ru/")),
                 contentDescription = station.title,
                 modifier = Modifier
                     .size(80.dp, 80.dp)
