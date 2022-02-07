@@ -1,6 +1,5 @@
 package com.example.hqradioandroid.data
 
-import android.content.Context
 import com.example.hqradioandroid.data.repositories.ConfigRepositoryImpl
 import com.example.hqradioandroid.data.repositories.IConfigRepository
 import com.example.hqradioandroid.data.sources.NetworkClient
@@ -16,7 +15,7 @@ class AppContainer() {
             .create()
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://hqradio.ru")
+            .baseUrl(mainUrl)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
 
@@ -24,4 +23,6 @@ class AppContainer() {
 
         ConfigRepositoryImpl(networkClient)
     }
+
+    val mainUrl = "http://hqradio.ru/";
 }

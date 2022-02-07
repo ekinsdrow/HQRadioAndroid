@@ -20,8 +20,8 @@ data class Station(
     @SerializedName("network_name")
     val networkName: String,
 ){
-    fun getImage(): String{
-        return "http://hqradio.ru/data/logos/$id.jpg"
+    fun getImage(mainUrl: String): String{
+        return "${mainUrl}data/logos/$id.jpg"
     }
 }
 
