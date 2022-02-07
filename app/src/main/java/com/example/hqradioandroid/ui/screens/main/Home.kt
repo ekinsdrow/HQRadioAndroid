@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.hqradioandroid.data.models.ConfigLocal
-import com.example.hqradioandroid.ui.components.StationsListView
+import com.example.hqradioandroid.ui.components.StationsHorizontalListView
 
 @Composable
 @Preview
@@ -19,6 +19,6 @@ fun HomeScreen() {
         OutlinedTextField(value = "", onValueChange = {})
         Text(text = "Стили")
         Spacer(modifier = Modifier.height(height = 10.dp))
-        StationsListView(ConfigLocal.current.stations)
+        StationsHorizontalListView(ConfigLocal.current.stations)
     }
 }
