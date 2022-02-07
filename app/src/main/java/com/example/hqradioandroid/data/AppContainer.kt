@@ -13,7 +13,6 @@ class AppContainer() {
         val gson = GsonBuilder()
             .setLenient()
             .create()
-
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(mainUrl)
             .addConverterFactory(GsonConverterFactory.create(gson))
