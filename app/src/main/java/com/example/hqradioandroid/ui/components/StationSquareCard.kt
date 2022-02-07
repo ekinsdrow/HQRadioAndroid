@@ -4,7 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -16,10 +16,10 @@ import com.example.hqradioandroid.data.models.Station
 
 @Composable
 fun StationSquareCard(station: Station, click: () -> Unit) {
-    Card(
+    Surface(
         modifier = Modifier
-            .clickable { click() }
             .clip(RoundedCornerShape(10.dp))
+            .clickable { click() }
             .fillMaxWidth()
     ) {
         Column() {
