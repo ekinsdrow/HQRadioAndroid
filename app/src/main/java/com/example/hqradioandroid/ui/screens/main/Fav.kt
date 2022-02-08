@@ -1,11 +1,14 @@
 package com.example.hqradioandroid.ui.screens.main
 
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.hqradioandroid.data.models.ConfigLocal
+import com.example.hqradioandroid.ui.components.StationsListView
 
 @Composable
 @Preview
 fun FavScreen() {
-    Text(text = "Fav")
+    val config = ConfigLocal.current
+
+    StationsListView(stations = config.stations)
 }

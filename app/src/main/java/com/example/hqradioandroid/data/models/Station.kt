@@ -1,7 +1,6 @@
 package com.example.hqradioandroid.data.models
 
 import com.google.gson.annotations.SerializedName
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 
@@ -19,11 +18,24 @@ data class Station(
     val network: String,
     @SerializedName("network_name")
     val networkName: String,
-){
-    fun getImage(mainUrl: String): String{
+) {
+    fun getImage(mainUrl: String): String {
         return "${mainUrl}data/logos/$id.jpg"
     }
 }
 
 @Serializable
-data class Stations(val list: ArrayList<Station>)
+data class Stations(val list: ArrayList<Station>) {
+
+    fun getStationsListByStationIdList(stationIdList: StationIdList): Stations{
+        val resList = arrayListOf<Station>()
+
+        for (i in list) {
+            if (stationIdList.list.contains(StationId(i.id))) {
+                resList.add(i)
+            }
+        }
+
+        return Stations(list = resList)
+    }
+}
