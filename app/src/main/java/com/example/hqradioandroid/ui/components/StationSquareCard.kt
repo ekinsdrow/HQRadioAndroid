@@ -22,7 +22,7 @@ fun StationSquareCard(station: Station, click: () -> Unit) {
             .clickable { click() }
             .fillMaxWidth()
     ) {
-        Column() {
+        Column {
             Image(
                 //TODO: inject mainUrl from AppContainer
                 painter = rememberImagePainter(station.getImage("http://hqradio.ru/")),

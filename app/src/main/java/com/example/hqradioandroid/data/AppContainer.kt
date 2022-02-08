@@ -7,7 +7,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class AppContainer() {
+class AppContainer {
     val configRepository: IConfigRepository by lazy {
 
         val gson = GsonBuilder()
@@ -23,5 +23,5 @@ class AppContainer() {
         ConfigRepositoryImpl(networkClient)
     }
 
-    val mainUrl = "http://hqradio.ru/";
+    private val mainUrl = "http://hqradio.ru/"
 }

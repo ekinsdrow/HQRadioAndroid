@@ -27,7 +27,7 @@ fun StationCard(station: Station, click: () -> Unit) {
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row() {
+            Row {
                 Image(
                     //TODO: inject mainUrl from AppContainer
 
@@ -38,7 +38,7 @@ fun StationCard(station: Station, click: () -> Unit) {
                         .clip(RoundedCornerShape(10.dp))
                 )
                 Spacer(modifier = Modifier.width(20.dp))
-                Column() {
+                Column {
                     Text(text = station.title)
                     Text(text = station.network)
                     Text(text = station.styleName[0].uppercase() + station.styleName.substring(1))
