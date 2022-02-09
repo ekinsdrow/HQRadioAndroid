@@ -27,7 +27,7 @@ data class Station(
 @Serializable
 data class Stations(val list: ArrayList<Station>) {
 
-    fun getStationsListByStationIdList(stationIdList: StationIdList): Stations{
+    fun getStationsListByStationIdList(stationIdList: StationIdList): Stations {
         val resList = arrayListOf<Station>()
 
         for (i in list) {
@@ -37,5 +37,17 @@ data class Stations(val list: ArrayList<Station>) {
         }
 
         return Stations(list = resList)
+    }
+
+    fun getStationByString(string: String): Stations {
+        val resList = arrayListOf<Station>()
+        for (i in list) {
+            if (i.title.lowercase().contains(string)) {
+                resList.add(i)
+            }
+        }
+
+        return Stations(list = resList)
+
     }
 }

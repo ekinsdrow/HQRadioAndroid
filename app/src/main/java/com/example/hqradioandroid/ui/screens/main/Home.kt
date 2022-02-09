@@ -9,7 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,11 +19,47 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.example.hqradioandroid.data.models.*
 import com.example.hqradioandroid.ui.components.StationsHorizontalListView
+import com.example.hqradioandroid.ui.components.StationsListView
 import com.example.hqradioandroid.utils.ColorUtil
 
 @Composable
 @Preview
 fun HomeScreen() {
+    val config = ConfigLocal.current
+    var searchValue by remember {
+        mutableStateOf("")
+    }
+
+
+    Column {
+        SearchField(
+            searchValue,
+            callback = {
+                searchValue = it
+            }
+        )
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        if (searchValue == "") {
+            MainBody(config = config)
+        } else {
+            StationsListView(stations = config.stations.getStationByString(searchValue))
+        }
+    }
+}
+
+@Composable
+private fun SearchField(searchValue: String, callback: (String) -> Unit) {
+    OutlinedTextField(
+        value = searchValue,
+        onValueChange = callback,
+        modifier = Modifier.fillMaxWidth(),
+    )
+}
+
+@Composable
+fun MainBody(config: Config) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -31,9 +67,6 @@ fun HomeScreen() {
             .padding(bottom = 60.dp)
 
     ) {
-        val config = ConfigLocal.current
-        Search()
-        Spacer(modifier = Modifier.height(20.dp))
         Styles(styles = config.styles)
         Spacer(modifier = Modifier.height(height = 20.dp))
         Networks(networks = config.networks)
@@ -49,11 +82,6 @@ fun HomeScreen() {
         )
 
     }
-}
-
-@Composable
-private fun Search() {
-    OutlinedTextField(value = "", onValueChange = {}, modifier = Modifier.fillMaxWidth())
 }
 
 @Composable
