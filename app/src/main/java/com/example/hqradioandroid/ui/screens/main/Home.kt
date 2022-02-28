@@ -30,8 +30,7 @@ fun HomeScreen() {
         mutableStateOf("")
     }
 
-
-    Column {
+    Column(modifier = Modifier.padding(bottom = 60.dp)) {
         SearchField(
             searchValue,
             callback = {
@@ -64,7 +63,6 @@ fun MainBody(config: Config) {
         modifier = Modifier
             .fillMaxWidth()
             .verticalScroll(rememberScrollState())
-            .padding(bottom = 60.dp)
 
     ) {
         Styles(styles = config.styles)
